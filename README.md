@@ -1,7 +1,3 @@
-#PVM
-
-RVM for Python
-
 ## What can pvm do
 
 manage your virtualenv.
