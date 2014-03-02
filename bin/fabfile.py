@@ -14,6 +14,7 @@ def list():
 		print "Installed virtualenv:"
 		for env_name in envs:
 			print env_name
+		print "'pvm use:env_name' to use one of installed env" 
 
 @task
 def install(env_name = None):
@@ -34,13 +35,12 @@ def use(env_name = None):
 		env_path = env_path_from_name(env_name)
 		if os.path.exists(env_path):
 			activate_path = os.path.join(env_path,"bin/activate")
-			with open("run_env.sh","w") as bash_file:
-				command_line = "source "+activate_path
-				print "run command:\n",command_line,"\nin your shell.\nI'don't know how to run it in Python, if you know, please tell me. :)"
+			command_line = "source "+activate_path
+			print "run command:\n",command_line,"\nin your shell.\nI'don't know how to run it in Python, if you know, please tell me. :)"
 		else:
 			print "not found virtualenv:",env_name,",'pvm list' to list all installed envs"
 	else:
-		print "missing virtualenv name, use 'pvm list' to list all installed envs"
+		print "missing virtualenv name, use 'pvm list' to list all installed envs. 'pvm use:env_name' to use it"
 
 def env_path_from_name(env_name):
 	env_path = None
