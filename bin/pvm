@@ -6,6 +6,9 @@ if __name__ == "__main__":
 	args_str = " ".join(sys.argv[1:])
 	if args_str.strip() == "":
 		args_str = "argument_not_found"
-
-	os.system("fab "+args_str)
-
+	current_dir = os.path.abspath(__file__)	
+	pvm_real_path = os.path.realpath(current_dir)
+	bin_dir = os.path.dirname(pvm_real_path)
+	fabfile_path = os.path.join(bin_dir,"fabfile.py")
+	command = "fab -f " + fabfile_path + " " + args_str
+	os.system(command)
