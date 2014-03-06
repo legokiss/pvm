@@ -1,7 +1,7 @@
 from fabric.api import run, task
 import os
 
-env_root_dir = os.path.expanduser("~/.pvm")
+env_root_dir = os.path.expanduser("~/pvm")
 if not os.path.exists(env_root_dir):
 	os.makedirs(env_root_dir)
 
