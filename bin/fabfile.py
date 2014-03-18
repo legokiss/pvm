@@ -36,7 +36,6 @@ def use(env_name = None):
 		if os.path.exists(env_path):
 			activate_path = os.path.join(env_path,"bin/activate")
 			command_line = "source "+activate_path
-			execfile(activate_path,dict(__file__=activate_path))
 			print "run command:\n",command_line,"\nin your shell.\nI'don't know how to run it in Python, if you know, please tell me. :)"
 		else:
 			print "not found virtualenv:",env_name,",'pvm list' to list all installed envs"
