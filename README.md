@@ -10,7 +10,7 @@ manage your virtualenv.
 
 `pip install virtualenv`
 
-add `source /path/to/pvm.sh` in .zshrc or .bashrc. and then "source .zshr    c" for example.
+add `source /path/to/pvm.sh` in .zshrc or .bashrc. and then "source .zshrc" for example.
 
 
 ### usage
