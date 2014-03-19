@@ -8,11 +8,9 @@ manage your virtualenv.
 
 ### install
 
-`pip install fabric`
-
 `pip install virtualenv`
 
-`./install.sh`
+add `source /path/to/pvm.sh` in .zshrc or .bashrc. and then "source .zshr    c" for example.
 
 
 ### usage
