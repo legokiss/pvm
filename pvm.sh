@@ -52,6 +52,7 @@ function use() {
 	else
 		if [ -d $env_path ]; then
 			source $activate_path
+			echo "\"deactivate\" to exit current virtual env"
 		else
 			echo "$env_name not exist, \"pvm install:$env_name\" to make it"
 		fi
