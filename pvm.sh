@@ -4,7 +4,7 @@
 pvm_dir=$HOME"/.pvm"
 
 function usage() {
-	echo "Usage: \npvm list\npvm install:env_name\npvm use:env_name"
+	echo "Usage: \npvm list\npvm install:env_name\npvm use:env_name\npvm remove:env_name"
 }
 
 function list() {
@@ -18,7 +18,7 @@ function list() {
 			do
 				echo $env
 			done
-			echo "\n\"pvm use:env_name\" to use one of the above envs,\n\"pvm install:env_name\" to make one"
+			echo "\n\"pvm use:env_name\" to use one of the above envs,\n\"pvm install:env_name\" to make one\n\"pvm remove:env_name\" to delete it"
 		fi
 	else
 		echo $help_text
@@ -58,6 +58,22 @@ function use() {
 	fi
 }
 
+function remove() {
+	env_name=$1	
+	env_path=$pvm_dir"/"$env_name
+
+	if [ -z $env_name ]; then
+		echo "missing evn name, \"pvm remove:env_name\""
+	else
+		if [ -d $env_path ]; then
+			rm -rf $env_path
+			echo "remove virtual env $env_name succeed"
+		else
+			echo "$env_name not exist"
+		fi
+	fi
+}
+
 function pvm() {
 	if [ -z $1 ]; then
 		usage
@@ -68,6 +84,7 @@ function pvm() {
 			"list") list;;
 			"install") install $argument;;
 			"use") use $argument;;
+			"remove") remove $argument;;
 			*) usage;;
 		esac
 	fi
