@@ -91,3 +91,8 @@ function pvm() {
 	fi
 }
 
+function init_python_package() {		
+	python_code="from sys import path\nfrom os.path import dirname\npath.append(dirname(path[0])) \n# add parent directory into PythonPath, in order to load sibling packages\n# just import env.py in python script, then you can import sibliing package as normal way"
+	echo $python_code > env.py
+}
+
